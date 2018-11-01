@@ -1,6 +1,7 @@
 # Breakout
 
-To-do list:
+## What is this project?
+This is my take on the classic Breakout game.
 
-- Improve bat movement
-- Make bricks
+## How to play?
+Download the repository and open index.html to try the game for yourself!
