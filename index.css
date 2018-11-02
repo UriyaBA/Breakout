@@ -1,0 +1,18 @@
+#score {
+    position: absolute;
+    top: 75%;
+    left: 47%;
+    text-align: center;
+}
+
+canvas {
+    border: 3px solid #0033cc;
+    position: absolute;
+    top: 5%;
+    left: 35%;
+}
+
+body {
+    margin: 0;
+    background-color: #ffccdc;
+}
