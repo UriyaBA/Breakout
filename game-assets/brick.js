@@ -10,12 +10,14 @@ class Brick {
 		this.strokeColor = '#ffffff';
 
 		this.draw = function () {
+
 			c.fillStyle = this.fillColor;
 			c.fillRect(this.x, this.y, this.w, this.h);
 			c.strokeStyle = this.strokeColor;
 			c.strokeRect(this.x, this.y, this.w, this.h);
+
 		};
 
 	}
-	
+
 }
