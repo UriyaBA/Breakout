@@ -16,12 +16,11 @@ class Ball {
 
 				if (dx < this.radius + bat.w / 2 && dy < this.radius + bat.h / 2) {
 
-					// Hit from above
 					if (this.y < bat.y) {
 						this.yspeed *= -1;
 					}
 
-					// Hit from the sides
+					// Makes side collisions less ugly
 					else {
 
 						if (this.y > bat.y + bat.h / 2) {
@@ -53,15 +52,25 @@ class Ball {
 			for (var i = 0; i < bricks.length; i++) {
 
 				var brick = bricks[i];
+
 				var dx = Math.abs((brick.x + brick.w / 2) - this.x);
 				var dy = Math.abs((brick.y + brick.h / 2) - this.y);
 
 				// If the ball hits a brick..
 				if (dx < this.radius + brick.w / 2 && dy < this.radius + brick.h / 2) {
 
-					this.yspeed = -this.yspeed;
 					bricks.splice(i, 1);
 					PLAYER_SCORE += 100;
+
+					if (this.y < brick.y || this.y > brick.y + brick.h) {
+						this.yspeed *= -1;
+					}
+
+					else {
+
+						this.xspeed *= -1;
+
+					}
 
 				}
 
@@ -74,11 +83,14 @@ class Ball {
 
 			// Upper Border
 			else if (this.y - this.radius <= 0) {
+
 				this.yspeed *= -1;
+
 			}
 
 		};
 
+		// Unused
 		this.drawSpeedVector = function () {
 
 			var xHead = this.x + 10 * this.xspeed, yHead = this.y + 10 * this.yspeed;
@@ -109,7 +121,6 @@ class Ball {
 		// Setting a pleasant starting angle
 		var angle = 1 / 3 * Math.PI + (Math.random() * (1 / 3 * Math.PI));
 
-		//var angle = Math.PI/2;
 		this.xspeed = BALL_X_SPEED * Math.cos(angle);
 		this.yspeed = BALL_Y_SPEED * Math.sin(angle);
 

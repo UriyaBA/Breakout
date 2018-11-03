@@ -10,15 +10,21 @@ class Bat {
 		this.speed = 0;
 
 		this.moveLeft = function () {
+
 			this.speed = -BAT_SPEED;
+
 		};
 
 		this.moveRight = function () {
+
 			this.speed = BAT_SPEED;
+
 		};
 
 		this.stop = function () {
+
 			this.speed = 0;
+
 		}
 
 		this.update = function () {
@@ -26,11 +32,15 @@ class Bat {
 			this.x += this.speed;
 
 			if (this.x + BAT_WIDTH >= canvas.width) {
+
 				this.x = canvas.width - w;
+
 			}
 
 			else if (this.x < 0) {
+
 				this.x = 0;
+				
 			}
 
 		};
