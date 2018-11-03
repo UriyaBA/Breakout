@@ -1,3 +1,4 @@
+//Good job on abstracting the basic game elemnts
 class GameObject {
 
     constructor(x, y, w, h){

@@ -16,10 +16,11 @@ function animate() {
 
 	requestAnimationFrame(animate);
 	c.clearRect(0, 0, innerWidth, innerHeight);
-
+	//--CR-- Consider making player Score a class, more on that in the Brick class
 	// Update Score
 	document.getElementById('score').innerHTML = "Score: " + PLAYER_SCORE;
 
+	//--CR-- make a list of all the object that need to be drawn or updated each frame and iterate over it activating the update() and draw() functions
 	// Update all game objects
 	bat.update();
 	ball.update();
@@ -34,7 +35,7 @@ function animate() {
 	}
 
 }
-
+//--CR-- Consider making brick wall an object for organization sake
 function createBrickWall() {
 
 	var lightnessDiff = 5;
@@ -56,8 +57,9 @@ function createBrickWall() {
 	return bricks;
 }
 
+//--Not CR-- bat seems to get stuck somethimes when switching directions probably has something to do with the keyListener functionality
+//--CR-- You should connect the function directly to the keydown event with better syntax (might not be possible in js so please check this)
 function addListeners() {
-
 	window.addEventListener('keydown', function (event) {
 
 		if (event.keyCode == 37) {
@@ -92,11 +94,12 @@ function addListeners() {
 
 }
 
+//--CR-- Encapsulate in an init() function for clearer code
 // Initialization
-
 focus();
 
 var canvas = document.querySelector('canvas');
+//--CR-- should probably also be configurable, see point below
 canvas.width = 600;
 canvas.height = 550;
 
@@ -104,6 +107,9 @@ var c = canvas.getContext('2d');
 
 addListeners();
 
+
+//These are supposed to be constants as the CAPITAL name suggests, consider moving them to the beginning of the class for best practice,
+// or even better omit them completly to a config file
 // Player Variables
 var PLAYER_SCORE = 0;
 

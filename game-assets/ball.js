@@ -6,9 +6,10 @@ class Ball {
 		this.y = y;
 		this.radius = radius;
 		this.color = color;
-
-		this.checkObjectCollision = function (gameObject) {
-
+		//--CR-- Colission Check should be done in a second class that represents the entire board (Single Responsiblity)
+		//also the collision calculation them selves should be done by a static util class that recives two GameObjects and determines if they collide
+		this.checkObjectCollision = function (gameObject) { 
+			//--CR-- Options for object collision should be dynamic and injected from the main game constructor (Dependecy Inversion)
 			if (gameObject instanceof Bat) {
 
 				var dx = Math.abs((bat.x + bat.w / 2) - this.x);
@@ -48,9 +49,10 @@ class Ball {
 			// Handling collisions
 			this.checkObjectCollision(bat);
 
+			//--CR-- should be a collision option in your check collision function see comment above for more details
 			// Bricks
 			for (var i = 0; i < bricks.length; i++) {
-
+				//--CR-- there is a for syntax just for this its called foreach()
 				var brick = bricks[i];
 
 				var dx = Math.abs((brick.x + brick.w / 2) - this.x);
@@ -90,6 +92,7 @@ class Ball {
 
 		};
 
+		//--CR-- if unused please delete or at least comment it out for the time being
 		// Unused
 		this.drawSpeedVector = function () {
 
@@ -117,7 +120,7 @@ class Ball {
 			//this.drawSpeedVector();
 
 		};
-
+		//--CR-- the ball class should not be the one deciding the starting angle, please move it as you see fit
 		// Setting a pleasant starting angle
 		var angle = 1 / 3 * Math.PI + (Math.random() * (1 / 3 * Math.PI));
 
