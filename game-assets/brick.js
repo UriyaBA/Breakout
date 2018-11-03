@@ -1,13 +1,12 @@
-class Brick {
+class Brick extends GameObject {
 
-	constructor(x, y, w, h) {
+	constructor(x, y, w, h, fillColor) {
 
-		this.x = x;
-		this.y = y;
-		this.w = w;
-		this.h = h;
-		this.fillColor = '#d9b3ff';
+		super(x, y, w, h);
+		this.fillColor = fillColor;
 		this.strokeColor = '#ffffff';
+
+		this.update = function(){};
 
 		this.draw = function () {
 

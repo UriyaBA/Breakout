@@ -1,11 +1,8 @@
-class Bat {
+class Bat extends GameObject {
 
 	constructor(x, y, w, h, color) {
 
-		this.x = x;
-		this.y = y;
-		this.w = w;
-		this.h = h;
+		super(x, y, w, h);
 		this.color = color;
 		this.speed = 0;
 
